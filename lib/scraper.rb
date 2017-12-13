@@ -3,10 +3,6 @@ require 'pry'
 
 class Scraper
 
-  # attr_accessor :scraped_students, :scraped_student
-  # @scraped_students = []
-  # @scraped_student = {}
-
   def self.scrape_index_page(index_url)
     scraped_students = []
     html = open('./fixtures/student-site/index.html')
@@ -36,15 +32,6 @@ class Scraper
       scraped_student[:bio] = doc.css(".description-holder p").text
     end
     scraped_student
-    # @scraped_student = {
-    #   :twitter => urls[:twitter],
-    #   :linkedin => urls[:linkedin],
-    #   :github => urls[:github],
-    #   :blog => urls[:blog],
-    #   :profile_quote => doc.css(".profile-quote").text,
-    #   :bio => doc.css(".description-holder p").text
-    # }
-    # @scraped_student = @scraped_student.select { | k, v | !v.nil? }
   end
 
 end
