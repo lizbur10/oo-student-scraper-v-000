@@ -23,7 +23,10 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    @twitter_url = nil, @linkedin_url = nil, @github_url = nil, @blog_url = nil
+    @twitter_url = nil
+    @linkedin_url = nil
+    @github_url = nil
+    @blog_url = nil
     html = open("#{profile_url}")
     doc = Nokogiri::HTML(html)
     doc.css(".social-icon-container a").each do | link |
