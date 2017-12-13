@@ -20,7 +20,7 @@ class Student
     self.bio = attributes_hash[:bio]
     self.blog = attributes_hash[:blog]
     self.linkedin = attributes_hash[:linkedin]
-    
+    self.profile_quote = attributes_hash[:profile_quote]
   end
 
   def self.all
