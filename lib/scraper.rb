@@ -3,7 +3,7 @@ require 'pry'
 
 class Scraper
 
-  # attr_accessor :scraped_students, :scraped_student
+  attr_accessor :scraped_students, :scraped_student
   # @scraped_students = []
   # @scraped_student = {}
 
