@@ -23,13 +23,16 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
+    @twitter_url = nil
+    @linkedin_url = nil
+    @github_url = nil
     html = open("#{profile_url}")
     doc = Nokogiri::HTML(html)
     # binding.pry
     doc.css(".social-icon-container a").each do | link |
-      link["href"].include?('twitter') ? @twitter_url = link["href"] : @twitter_url = nil
-      link["href"].include?('linkedin') ? @linkedin_url = link["href"] : @linkedin_url = nil
-      link["href"].include?('github') ? @github_url = link["href"] : @github_url = nil
+      @twitter_url = link["href"] if link["href"].include?('twitter')
+      @linkedin_url = link["href"] if link["href"].include?('linkedin')
+      @github_url = link["href"] if link["href"].include?('github')
     end
     @scraped_student = {
       :twitter => @twitter_url,
