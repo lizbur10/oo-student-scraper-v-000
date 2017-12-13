@@ -27,19 +27,19 @@ class Scraper
     html = open("#{profile_url}")
     doc = Nokogiri::HTML(html)
     doc.css(".social-icon-container a").each do | link |
-      urls[:twitter]  = link["href"] if link["href"].include?('twitter')
-      urls[:linkedin] = link["href"] if link["href"].include?('linkedin')
-      urls[:github] = link["href"] if link["href"].include?('github')
-      urls[:blog] = link["href"] if !( link["href"].include?('twitter') || link["href"].include?('linkedin') || link["href"].include?('github') )
+      @scraped_student[:twitter] = link["href"] if link["href"].include?('twitter')
+      @scraped_student[:linkedin] = link["href"] if link["href"].include?('linkedin')
+      @scraped_student[:github] = link["href"] if link["href"].include?('github')
+      @scraped_student[:blog] = link["href"] if !( link["href"].include?('twitter') || link["href"].include?('linkedin') || link["href"].include?('github') )
     end
-    @scraped_student = {
-      :twitter => urls[:twitter],
-      :linkedin => urls[:linkedin],
-      :github => urls[:github],
-      :blog => urls[:blog],
-      :profile_quote => doc.css(".profile-quote").text,
-      :bio => doc.css(".description-holder p").text
-    }
+    # @scraped_student = {
+    #   :twitter => urls[:twitter],
+    #   :linkedin => urls[:linkedin],
+    #   :github => urls[:github],
+    #   :blog => urls[:blog],
+    #   :profile_quote => doc.css(".profile-quote").text,
+    #   :bio => doc.css(".description-holder p").text
+    # }
     # @scraped_student = @scraped_student.select { | k, v | !v.nil? }
   end
 
