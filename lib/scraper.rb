@@ -34,6 +34,7 @@ class Scraper
       @linkedin_url = link["href"] if link["href"].include?('linkedin')
       @github_url = link["href"] if link["href"].include?('github')
     end
+    binding.pry
     @scraped_student = {
       :twitter => @twitter_url,
       :linkedin => @linkedin_url,
