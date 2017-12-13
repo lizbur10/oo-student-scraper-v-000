@@ -43,6 +43,7 @@ class Scraper
       :profile_quote => doc.css(".profile-quote").text,
       :bio => doc.css(".description-holder p").text
     }
+    @scraped_student = @scraped_student.select { | k, v | !v.nil }
   end
 
 end
