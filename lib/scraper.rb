@@ -39,7 +39,7 @@ class Scraper
       :twitter => @twitter_url,
       :linkedin => @linkedin_url,
       :github => @github_url,
-      :blog => doc.css(".social-icon-container a:last-of-type")[0]["href"],
+      :blog => @blog_url,
       :profile_quote => doc.css(".profile-quote").text,
       :bio => doc.css(".description-holder p").text
     }
