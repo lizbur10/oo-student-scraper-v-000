@@ -24,16 +24,17 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    @scraped_student = {}
+    scraped_student = {}
     html = open("#{profile_url}")
     doc = Nokogiri::HTML(html)
     doc.css(".social-icon-container a").each do | link |
-      @scraped_student[:twitter] = link["href"] if link["href"].include?('twitter')
-      @scraped_student[:linkedin] = link["href"] if link["href"].include?('linkedin')
-      @scraped_student[:github] = link["href"] if link["href"].include?('github')
-      @scraped_student[:blog] = link["href"] if !( link["href"].include?('twitter') || link["href"].include?('linkedin') || link["href"].include?('github') )
-      @scraped_student[:profile_quote] = doc.css(".profile-quote").text
-      @scraped_student[:bio] = doc.css(".description-holder p").text
+      scraped_student[:twitter] = link["href"] if link["href"].include?('twitter')
+      scraped_student[:linkedin] = link["href"] if link["href"].include?('linkedin')
+      scraped_student[:github] = link["href"] if link["href"].include?('github')
+      scraped_student[:blog] = link["href"] if !( link["href"].include?('twitter') || link["href"].include?('linkedin') || link["href"].include?('github') )
+      scraped_student[:profile_quote] = doc.css(".profile-quote").text
+      scraped_student[:bio] = doc.css(".description-holder p").text
+      # binding.pry
     end
     # @scraped_student = {
     #   :twitter => urls[:twitter],
