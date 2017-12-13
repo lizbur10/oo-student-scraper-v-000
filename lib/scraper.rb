@@ -34,8 +34,8 @@ class Scraper
       scraped_student[:blog] = link["href"] if !( link["href"].include?('twitter') || link["href"].include?('linkedin') || link["href"].include?('github') )
       scraped_student[:profile_quote] = doc.css(".profile-quote").text
       scraped_student[:bio] = doc.css(".description-holder p").text
-      binding.pry
     end
+    scraped_student
     # @scraped_student = {
     #   :twitter => urls[:twitter],
     #   :linkedin => urls[:linkedin],
