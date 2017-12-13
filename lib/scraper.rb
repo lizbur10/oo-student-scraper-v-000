@@ -28,7 +28,7 @@ class Scraper
     # binding.pry
     doc.css(".social-icon-container a").each do | link |
       link["href"].include?('twitter')  ? @twitter_url = link["href"]  : @twitter_url = nil
-      link["href"].include?('linkedin') ? @linkedin_url = link["href"] : @linkedin_url = nil 
+      link["href"].include?('linkedin') ? @linkedin_url = link["href"] : @linkedin_url = nil
       link["href"].include?('github')   ? @github_url = link["href"]   : @github_url = nil
     end
     @scraped_student = {
