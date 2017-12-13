@@ -3,11 +3,12 @@ require 'pry'
 
 class Scraper
 
-  attr_accessor :scraped_students, :scraped_student
+  # attr_accessor :scraped_students, :scraped_student
   # @scraped_students = []
   # @scraped_student = {}
 
   def self.scrape_index_page(index_url)
+    scraped_students = []
     html = open('./fixtures/student-site/index.html')
     doc = Nokogiri::HTML(html)
     students = doc.css("div.student-card")
