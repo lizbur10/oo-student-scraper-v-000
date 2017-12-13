@@ -18,7 +18,7 @@ class Student
 
   def add_student_attributes(attributes_hash)
     attributes_hash.each do | key, value |
-      attribute_name = key.to_s
+      attribute_name = key
       # binding.pry
       self.attribute_name = attributes_hash[:value]
     end
