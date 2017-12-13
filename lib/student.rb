@@ -17,8 +17,8 @@ class Student
   end
 
   def add_student_attributes(attributes_hash)
-    attributes_hash.each do | attribute |
-      self.attribute = attributes_hash[:attribute]
+    attributes_hash.each do | key, value |
+      self.key = attributes_hash[:value]
     end
     # self.blog = attributes_hash[:blog]
     # self.linkedin = attributes_hash[:linkedin]
