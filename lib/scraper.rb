@@ -19,7 +19,7 @@ class Scraper
       }
       @scraped_students << @student_info
     end
-    @scraped_students
+    # @scraped_students
   end
 
   def self.scrape_profile_page(profile_url)
